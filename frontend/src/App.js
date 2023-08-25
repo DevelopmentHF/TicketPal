@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import axios from "axios";
 
+/*
 const tempTickets = [
   {
     name: "BTV",
@@ -14,14 +16,26 @@ const tempTickets = [
     vendor: "Henry Feelding",
   },
 ];
+*/
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       viewCompleted: false,
-      ticketList: tempTickets,
+      ticketList: [],
     }
+  }
+
+  componentDidMount() {
+    this.refreshList();
+  };
+
+  refreshList = () => {
+    axios
+      .get("/api/tickets/")
+      .then((res) => this.setState({ticketList: res.data}))
+      .catch((err) => console.log(err));
   }
 
   displayCompleted = (status) => {
@@ -39,10 +53,8 @@ class App extends Component {
     
     return newTickets.map((item) => (
       <div className="ticket">
-        {item.name}
+        {item.name} {item.location}
       </div>
-    
-
     ));
   };
   
