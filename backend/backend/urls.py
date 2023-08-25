@@ -21,6 +21,7 @@ from TicketPal import views
 
 router = routers.DefaultRouter()
 router.register(r'tickets', views.TicketView, 'ticket')
+router.register(r'users', views.UserView, 'user')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
