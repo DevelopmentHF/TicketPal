@@ -95,6 +95,7 @@ export function Navigation() {
             </div>
             <div className="navbar-center">
                 <a className="btn btn-ghost normal-case text-5xl">TicketPal</a>
+                <img src="./frontend/src/logo.png" alt="TicketPal logo"></img>
             </div>
             <div className="navbar-end">
                 {isAuth && (
