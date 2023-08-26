@@ -17,7 +17,7 @@ class Featured extends Component {
     // get tickets from backend
     refreshList = () => {
     axios
-        .get("/api/tickets/")
+        .get("http://localhost:8000/api/tickets/")
         .then((res) => this.setState({ticketList: res.data}))
         .catch((err) => console.log(err));
     }

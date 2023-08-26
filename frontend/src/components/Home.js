@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import Featured from "./Featured";
 
 export const Home = () => {
     const [message, setMessage] = useState('');
-    const [username, setUsername] = useState("");
 
     useEffect(() => {
         if (localStorage.getItem('access_token') === null) {
@@ -33,6 +33,7 @@ export const Home = () => {
     return (
         <div className="form-signin mt-5 text-center">
             <h3>{message}</h3>
+            <Featured></Featured>
         </div>
     );
 };
