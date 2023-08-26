@@ -86,7 +86,7 @@ class Featured extends Component {
     
     render() {
         return (
-            <div className="carousel w-96 rounded-box">
+            <div className="carousel w-full rounded-box">
                 {this.renderItems()}
             </div>
         );

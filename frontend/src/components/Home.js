@@ -32,11 +32,12 @@ export const Home = () => {
     }, []);
 
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex-column justify-center items-center">
             <div className="text-center m-8 bg-base-200 rounded-2xl p-8">
                 <h1 className="text-4xl font-bold">Featured</h1>
                 <Featured></Featured>
             </div>
+            <input type="text" placeholder="Search" className="input input-bordered input-md w-full max-w-xs" />
             {/*<div className="text-center m-8">*/}
             {/*    <h1>Tickets you're selling</h1>*/}
             {/*    <Featured></Featured> */}
