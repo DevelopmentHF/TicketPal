@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import Featured from "./components/Featured";
 import axios from "axios";
+import {Navigation} from "./components/Navigations";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Login} from "./components/Login"
+import {Home} from "./components/Home"
+import {Logout} from "./components/Logout"
 
 /*
 const tempTickets = [
@@ -65,8 +70,16 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Featured></Featured>
-      <button className="btn">Button</button>
+        <BrowserRouter>
+          <Navigation></Navigation>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/logout" element={<Logout/>}/>
+          </Routes>
+        </BrowserRouter>
+
+        <Featured></Featured>
       </div>
     );
   }

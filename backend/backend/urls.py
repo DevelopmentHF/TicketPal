@@ -18,16 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from TicketPal import views
+from rest_framework_simplejwt import views as jwt_views
 
 router = routers.DefaultRouter()
 router.register(r'tickets', views.TicketView, 'ticket')
 router.register(r'users', views.UserView, 'user')
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/', include(router.urls)),
-    path('register/', views.register, name='register'),
-    path('login/', views.login_view, name='login'),
-    path('profile/', views.profile, name='profile'),
+    path('token/',
+         jwt_views.TokenObtainPairView.as_view(),
+         name='token_obtain_pair'),
+    path('token/refresh/',
+         jwt_views.TokenRefreshView.as_view(),
+         name='token_refresh'),
+    path('', include('TicketPal.urls')),
 ]
