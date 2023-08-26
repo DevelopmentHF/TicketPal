@@ -21,9 +21,7 @@ export const Home = () => {
                             }
                         }
                     );
-                    const decodedToken = jwt_decode(localStorage.getItem("access_token"));
-                    setUsername(decodedToken.username);
-                    console.log(username)
+
                     setMessage(data.message);
                 } catch (e) {
                     console.log('not auth', e);
@@ -34,7 +32,7 @@ export const Home = () => {
 
     return (
         <div className="form-signin mt-5 text-center">
-            <h3>Hi {message}</h3>
+            <h3>{message}</h3>
         </div>
     );
 };
