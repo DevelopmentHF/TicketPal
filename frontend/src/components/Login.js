@@ -18,7 +18,7 @@ export const Login = () => {
             user,
             {
                 headers: { 'Content-Type': 'application/json' },
-                withCredentials: false  // Correct placement of withCredentials
+                withCredentials: true  // Correct placement of withCredentials
             }
         );
 

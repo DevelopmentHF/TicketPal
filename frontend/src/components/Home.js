@@ -1,10 +1,10 @@
-// Import the react JS packages
 import { useEffect, useState } from "react";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
-// Define the Home component.
 export const Home = () => {
     const [message, setMessage] = useState('');
+    const [username, setUsername] = useState("");
 
     useEffect(() => {
         if (localStorage.getItem('access_token') === null) {
@@ -16,13 +16,17 @@ export const Home = () => {
                         'http://localhost:8000/home/',
                         {
                             headers: {
-                                'Content-Type': 'application/json'
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
                             }
                         }
                     );
+                    const decodedToken = jwt_decode(localStorage.getItem("access_token"));
+                    setUsername(decodedToken.username);
+                    console.log(username)
                     setMessage(data.message);
                 } catch (e) {
-                    console.log('not auth');
+                    console.log('not auth', e);
                 }
             })();
         }
