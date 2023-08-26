@@ -34,7 +34,7 @@ export const Home = () => {
     return (
         <div className="flex justify-center items-center">
             <div className="text-center m-8 bg-base-200 rounded-2xl p-8">
-                <h1 className="text-4xl font-bold">Today's featured tickets</h1>
+                <h1 className="text-4xl font-bold">Featured</h1>
                 <Featured></Featured>
             </div>
             {/*<div className="text-center m-8">*/}

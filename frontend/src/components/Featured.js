@@ -7,8 +7,11 @@ class Featured extends Component {
         super(props);
         this.state = {
             ticketList: [],
+            // isTicketShowing: false,
         }
-    }
+    };
+
+    
 
     /* this is grotty because its running every second */
     componentDidMount() {
@@ -31,6 +34,20 @@ class Featured extends Component {
         .catch((err) => console.log(err));
     }
 
+    // called when specific ticket is clicked
+    /*
+    toggleShowTicket = () => {
+        this.setState(prevState => ({
+            isTicketShowing: !prevState.isTicketShowing,
+        }));
+            
+    }
+    */
+
+    handleViewTicket = () => {
+        window.my_modal_1.showModal();
+    };
+    
     // render a carousel item for each ticket
     renderItems = () => {
 
@@ -42,15 +59,23 @@ class Featured extends Component {
     
         
         return newTickets.map((item) => (
-          <div className="flex carousel-item h-full py-5">
+          <div className="flex carousel-item h-full py-5 m-4">
             <div className="card w-60 bg-base-100">
                 <div className="card-body">
-                    <p>{item.name} {item.location}</p>
+                    <p onClick={this.handleViewTicket}>{item.name} {item.location}</p>
+                    <dialog id="my_modal_1" className="modal">
+                        <form method="dialog" className="modal-box">
+                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            <h3 className="font-bold text-lg">{item.name}</h3>
+                            <p className="py-4">{item.location}</p>
+                        </form>
+                    </dialog>
+                    
                     <div className="card-actions justify-center">
-                        <a className="btn btn-secondary">Bid</a>
+                        <button className="btn btn-secondary">Bid</button>
                     </div>
                     <div className="card-actions justify-center">
-                        <a className="btn btn-accent">Buy Now: $xx</a>
+                        <button className="btn btn-accent">Buy Now: $xx</button>
                     </div>
                 </div>
                 
@@ -61,7 +86,7 @@ class Featured extends Component {
     
     render() {
         return (
-            <div className="carousel w-60 rounded-box">
+            <div className="carousel w-96 rounded-box">
                 {this.renderItems()}
             </div>
         );
