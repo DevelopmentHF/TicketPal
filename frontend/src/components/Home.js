@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Featured from "./Featured";
+import {Navigation} from "./Navigations";
 
 export const Home = () => {
     const [message, setMessage] = useState('');

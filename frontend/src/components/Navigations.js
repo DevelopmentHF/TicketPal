@@ -94,39 +94,50 @@ export function Navigation() {
                 <a className="btn btn-ghost normal-case text-xl">TicketPal</a>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost btn-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                </button>
-                <button className="btn btn-primary" onClick={handleSellTicket}>
-                    Sell Your Ticket
-                </button>
-                <dialog id="my_modal_1" className="modal">
-                    <form onSubmit={handleSubmit} className="modal-box">
-                        <h3 className="font-bold text-lg">Event Details</h3>
-                        <p className="py-4">Upload your ticket details here</p>
-                        <div className="py-2">
-                            <label className="form-label p-4">Event Name</label>
-                            <input type="text" name="name" className="input input-bordered w-full max-w-xs" required />
-                        </div>
-                        <div className="py-2">
-                            <label className="form-label p-4">Location</label>
-                            <input type="text" name="location" className="input input-bordered w-full max-w-xs" required />
-                        </div>
-                        <div className="py-2">
-                            <label className="form-label p-4">Date</label>
-                            <input type="datetime-local" name="date" className="input input-bordered w-full max-w-xs" required />
-                        </div>
-                        <div className="py-2">
-                            <label className="form-label p-4">Ph. Num</label>
-                            <input type="text" name="phone" className="input input-bordered w-full max-w-xs" required />
-                        </div>
-                        {/* ... other form fields */}
-                        <div className="modal-action">
-                            <button type="submit" className="btn btn-primary">Create Listing</button>
-                        </div>
-                    </form>
-                    <button className="btn" onClick={handleClose}>Close</button>
-                </dialog>
+                {isAuth && (
+                    <>
+                        <button className="btn btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </button>
+                        <button className="btn btn-primary" onClick={handleSellTicket}>
+                            Sell Your Ticket
+                        </button>
+                        <dialog id="my_modal_1" className="modal">
+                            <form onSubmit={handleSubmit} className="modal-box">
+                                <h3 className="font-bold text-lg">Event Details</h3>
+                                <p className="py-4">Upload your ticket details here</p>
+                                <div className="py-2">
+                                    <label className="form-label p-4">Event Name</label>
+                                    <input type="text" name="name" className="input input-bordered w-full max-w-xs" required />
+                                </div>
+                                <div className="py-2">
+                                    <label className="form-label p-4">Location</label>
+                                    <input type="text" name="location" className="input input-bordered w-full max-w-xs" required />
+                                </div>
+                                <div className="py-2">
+                                    <label className="form-label p-4">Date</label>
+                                    <input type="datetime-local" name="date" className="input input-bordered w-full max-w-xs" required />
+                                </div>
+                                <div className="py-2">
+                                    <label className="form-label p-4">Ph. Num</label>
+                                    <input type="text" name="phone" className="input input-bordered w-full max-w-xs" required />
+                                </div>
+                                {/* ... other form fields */}
+                                <div className="modal-action">
+                                    <button type="submit" className="btn btn-primary">Create Listing</button>
+                                </div>
+                            </form>
+                            <button className="btn" onClick={handleClose}>Close</button>
+                        </dialog>
+                    </>
+                )}
+                {!isAuth && (
+                    <>
+                        <button className="btn btn-primary">
+                            Log in to sell your ticket
+                        </button>
+                    </>
+                )}
             </div>
         </div>
     </div>
