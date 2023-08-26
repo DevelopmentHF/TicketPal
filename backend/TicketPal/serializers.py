@@ -6,7 +6,7 @@ from .models import Ticket
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = ('id', 'name', 'location', 'date', 'vendor', 'phone')
+        fields = ('id', 'name', 'location', 'date', 'vendor', 'phone', 'maxBidder', 'bidders', 'curMaxBid')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
