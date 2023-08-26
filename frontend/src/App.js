@@ -60,11 +60,14 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <Navigation></Navigation>
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/logout" element={<Logout/>}/>
-          </Routes>
+          <div className="">
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/logout" element={<Logout/>}/>
+            </Routes>
+          </div>
+
         </BrowserRouter>
       </div>
     );

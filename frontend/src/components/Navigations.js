@@ -5,6 +5,7 @@ import Featured from "./Featured";
 export function Navigation() {
     const [isAuth, setIsAuth] = useState(false);
     const [vendorId, setVendorId] = useState(0);
+    const [username, setUsername] = useState('');
 
     // gets the vendor id from api
     useEffect(() => {
@@ -24,6 +25,7 @@ export function Navigation() {
 
                     setVendorId(data.id);
                     console.log("VENDOR ID: " + vendorId);
+                    setUsername(data.user);
                 } catch (e) {
                     console.log('not auth', e);
                 }
@@ -89,9 +91,10 @@ export function Navigation() {
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>
+                <p>Logged in as: {username}</p>
             </div>
             <div className="navbar-center">
-                <a className="btn btn-ghost normal-case text-xl">TicketPal</a>
+                <a className="btn btn-ghost normal-case text-5xl">TicketPal</a>
             </div>
             <div className="navbar-end">
                 {isAuth && (

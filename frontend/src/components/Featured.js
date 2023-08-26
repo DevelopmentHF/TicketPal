@@ -42,8 +42,8 @@ class Featured extends Component {
     
         
         return newTickets.map((item) => (
-          <div className="flex carousel-item h-full">
-            <div className="card w-60 bg-white shadow-xl">
+          <div className="flex carousel-item h-full py-5">
+            <div className="card w-60 bg-base-100">
                 <div className="card-body">
                     <p>{item.name} {item.location}</p>
                     <div className="card-actions justify-center">

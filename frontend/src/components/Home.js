@@ -32,14 +32,15 @@ export const Home = () => {
     }, []);
 
     return (
-        <div className="text-center">
-            <div className="form-signin mt-5 text-center">
-                <h3>{message}</h3>
-            </div>
-            <div className="p-5">
-                <h1 className="font-bold text-4xl p-4">Featured Tickets</h1>
+        <div className="flex justify-center items-center">
+            <div className="text-center m-8 bg-base-200 rounded-2xl p-8">
+                <h1 className="text-4xl font-bold">Today's featured tickets</h1>
                 <Featured></Featured>
             </div>
+            {/*<div className="text-center m-8">*/}
+            {/*    <h1>Tickets you're selling</h1>*/}
+            {/*    <Featured></Featured> */}
+            {/*</div>*/}
         </div>
     );
 };
