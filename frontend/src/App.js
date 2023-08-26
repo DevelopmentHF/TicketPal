@@ -40,7 +40,7 @@ class App extends Component {
   // get ticket list
   refreshList = () => {
     axios
-      .get("/api/tickets/")
+      .get("http://localhost:8000/api/tickets/")
       .then((res) => this.setState({ticketList: res.data}))
       .catch((err) => console.log(err));
   }
@@ -53,20 +53,8 @@ class App extends Component {
     return this.setState({ viewCompleted: false });
   };
 
-  /*
-  renderItems = () => {
-    const { viewCompleted } = this.state;
-    const newTickets = this.state.ticketList;
 
-    
-    return newTickets.map((item) => (
-      <div className="ticket">
-        {item.name} {item.location}
-      </div>
-    ));
-  };
-  */
-  
+
   render() {
     return (
       <div>

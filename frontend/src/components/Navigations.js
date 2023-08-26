@@ -36,6 +36,11 @@ export function Navigation() {
         window.my_modal_1.showModal();
     }
 
+    /* closes modal window */
+    const handleClose = () => {
+        window.my_modal_1.close();
+    }
+
     /* */
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -59,7 +64,7 @@ export function Navigation() {
             if (response.ok) {
                 // Handle success, maybe close the modal or show a success message
                 console.log("Ticket made");
-
+                handleClose();
             } else {
                 // Handle error, show an error message or take appropriate action
                 console.log("no ticket");
@@ -118,11 +123,9 @@ export function Navigation() {
                         {/* ... other form fields */}
                         <div className="modal-action">
                             <button type="submit" className="btn btn-primary">Create Listing</button>
-                            <button className="btn" onClick={() => window.my_modal_1.close()}>Close</button>
-
-
                         </div>
                     </form>
+                    <button className="btn" onClick={handleClose}>Close</button>
                 </dialog>
             </div>
         </div>
