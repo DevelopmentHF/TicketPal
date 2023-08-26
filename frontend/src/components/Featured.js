@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Bid } from "./Bid";
 
 // makes the carousel for featured tickets
 class Featured extends Component {
@@ -72,7 +73,7 @@ class Featured extends Component {
                     </dialog>
                     
                     <div className="card-actions justify-center">
-                        <button className="btn btn-secondary">Bid</button>
+                        <Bid></Bid>
                     </div>
                     <div className="card-actions justify-center">
                         <button className="btn btn-accent">Buy Now: $xx</button>
