@@ -31,9 +31,14 @@ export const Home = () => {
     }, []);
 
     return (
-        <div className="form-signin mt-5 text-center">
-            <h3>{message}</h3>
-            <Featured></Featured>
+        <div className="text-center">
+            <div className="form-signin mt-5 text-center">
+                <h3>{message}</h3>
+            </div>
+            <div className="p-5">
+                <h1 className="font-bold text-4xl p-4">Featured Tickets</h1>
+                <Featured></Featured>
+            </div>
         </div>
     );
 };
