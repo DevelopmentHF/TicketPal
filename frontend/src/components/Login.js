@@ -31,14 +31,14 @@ export const Login = () => {
     }
 
     return (
-        <div className="Auth-form-container">
-            <form className="Auth-form" onSubmit={submit}>
+        <div className="flex justify-center items-center p-24">
+            <form className="Auth-form p-8 bg-base-200 rounded-xl" onSubmit={submit}>
                 <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign In</h3>
+                    <h3 className="Auth-form-title text-xl font-bold" >Sign In</h3>
                     <div className="form-group mt-3">
                         <label>Username</label>
                         <input className="form-control mt-1"
-                               placeholder="Enter Username"
+                               // placeholder="Enter Username"
                                name='username'
                                type='text' value={username}
                                required
@@ -49,7 +49,7 @@ export const Login = () => {
                         <input name='password'
                                type="password"
                                className="form-control mt-1"
-                               placeholder="Enter password"
+                               // placeholder="Enter password"
                                value={password}
                                required
                                onChange={e => setPassword(e.target.value)}/>
