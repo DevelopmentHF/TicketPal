@@ -44,8 +44,8 @@ class Featured extends Component {
     }
     */
 
-    handleViewTicket = () => {
-        window.my_modal_1.showModal();
+    handleViewTicket() {
+        window.my_modal_3.showModal();
     };
     
     // render a carousel item for each ticket
@@ -63,7 +63,7 @@ class Featured extends Component {
             <div className="card w-60 bg-base-100">
                 <div className="card-body">
                     <p onClick={this.handleViewTicket}>{item.name} {item.location}</p>
-                    <dialog id="my_modal_1" className="modal">
+                    <dialog id={item.id} className="modal">
                         <form method="dialog" className="modal-box">
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             <h3 className="font-bold text-lg">{item.name}</h3>
