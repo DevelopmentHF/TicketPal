@@ -119,6 +119,10 @@ export function Navigation() {
                                     <input type="datetime-local" name="date" className="input input-bordered w-full max-w-xs" required />
                                 </div>
                                 <div className="py-2">
+                                    <label className="form-label p-4">Expiry</label>
+                                    <input type="datetime-local" name="expiry" className="input input-bordered w-full max-w-xs" required />
+                                </div>
+                                <div className="py-2">
                                     <label className="form-label p-4">Ph. Num</label>
                                     <input type="text" name="phone" className="input input-bordered w-full max-w-xs" required />
                                 </div>
