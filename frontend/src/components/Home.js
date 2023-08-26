@@ -37,7 +37,12 @@ export const Home = () => {
                 <h1 className="text-4xl font-bold">Featured</h1>
                 <Featured></Featured>
             </div>
-            <input type="text" placeholder="Search" className="input input-bordered input-md w-full max-w-xs" />
+            <div id="yourBids">
+                <h1>Your Bids</h1>
+            </div>
+            <div id="yourTickets">
+                <h1>Your Tickets</h1>
+            </div>
             {/*<div className="text-center m-8">*/}
             {/*    <h1>Tickets you're selling</h1>*/}
             {/*    <Featured></Featured> */}
