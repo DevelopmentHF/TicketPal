@@ -29,15 +29,20 @@ class Featured extends Component {
     
         
         return newTickets.map((item) => (
-          <div className="carousel-item">
-            {item.name} {item.location}
+          <div className="flex carousel-item h-full">
+            <div className="card w-96 bg-white shadow-xl">
+                <div className="card-body">
+                    <p>{item.name} {item.location}</p>
+                </div>
+                
+            </div>
           </div>
         ));
     };
     
     render() {
         return (
-            <div className="carousel carousel-center rounded-box">
+            <div className="carousel w-60 rounded-box">
                 {this.renderItems()}
             </div>
         );
