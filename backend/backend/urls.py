@@ -23,7 +23,11 @@ router = routers.DefaultRouter()
 router.register(r'tickets', views.TicketView, 'ticket')
 router.register(r'users', views.UserView, 'user')
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/', include(router.urls)),
+    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('profile/', views.profile, name='profile'),
 ]
