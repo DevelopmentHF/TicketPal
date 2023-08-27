@@ -63,7 +63,10 @@ class YourTickets extends Component {
     render() {
         return (
             <div>
-                {this.renderItems()}
+                <div className="bg-base-200 p-6 rounded-xl">
+                    <h1 className="font-bold text-2xl p-2">Your Tickets Currently on Auction</h1>
+                    {this.renderItems()}
+                </div>
             </div>
         );
     }

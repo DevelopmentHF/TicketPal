@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 import Featured from "./Featured";
 import {Navigation} from "./Navigations";
 import YourTickets from "./YourTickets";
-import {YourBids} from "./YourBids";
+import YourBids from "./YourBids";
 
 export const Home = () => {
     const [message, setMessage] = useState('');
@@ -40,9 +40,9 @@ export const Home = () => {
                 <h1 className="text-4xl font-bold">Featured</h1>
                 <Featured></Featured>
             </div>
-            <div className="flex">
+            <div className="flex gap-10 justify-center">
                 <div id="yourBids">
-                    <YourBids></YourBids>
+                    <YourBids id={userId}></YourBids>
                 </div>
                 <div id="yourTickets">
                     <YourTickets id={userId}></YourTickets>
