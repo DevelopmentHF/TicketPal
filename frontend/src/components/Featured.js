@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Bid } from "./Bid";
+import Bid from "./Bid";
 import Ticket from "./Ticket";
 
 // makes the carousel for featured tickets
@@ -65,10 +65,10 @@ class Featured extends Component {
             <div className="card w-60 bg-base-100">
                 <div className="card-body">
                     <p>{item.name} {item.location}</p>
-                    <Ticket name={item.name} location={item.location} id={item.id}></Ticket>
+                    
                     
                     <div className="card-actions justify-center">
-                        <Bid></Bid>
+                        <Bid id={item.id}></Bid>
                     </div>
                     <div className="card-actions justify-center">
                         <button className="btn btn-accent">Buy Now: $xx</button>
