@@ -95,7 +95,7 @@ export function Navigation() {
                 <p>Logged in as: {username}</p>
             </div>
             <div className="navbar-center">
-                <a className="btn btn-ghost normal-case text-5xl">TicketPal</a>
+                <a className="btn btn-ghost normal-case text-5xl scale-150">TicketPal</a>
                 {/*<img src="../logo.png" alt="TicketPal logo"></img>*/}
             </div>
             <div className="navbar-end">
