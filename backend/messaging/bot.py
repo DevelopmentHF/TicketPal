@@ -24,25 +24,21 @@ users = user_data.json()
 while True:
     melbourne_timezone = pytz.timezone('Australia/Melbourne')
     current_time = datetime.now(melbourne_timezone)
-    print(current_time)
+    print(str(current_time)[:-13])
     
     for ticket in tickets:
 
         ticket_time = datetime.strptime(ticket["date"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.UTC)
 
-        if current_time.year == ticket_time.year and \
-       current_time.month == ticket_time.month and \
-       current_time.day == ticket_time.day and \
-       current_time.hour == ticket_time.hour and \
-       current_time.minute == ticket_time.minute and \
-       current_time.second == ticket_time.second:
+        if str(current_time)[:-13] == str(ticket_time)[:-6]:
 
             for user in users:
                 if user.get("id") == ticket["vendor"]:
 
                     message = client.messages \
                         .create(
-                        body="Congragulations " + user.get("username") + "! Your item was sold for $" + str(ticket["curMaxBid"]),
+                        body="Congragulations " + user.get("username") + "! Your " + ticket["name"] + 
+                        " ticket was bought for $" + str(ticket["curMaxBid"]) +" by null",
                         from_='+15189812165',
                         to= '+61472909030'
                     )
