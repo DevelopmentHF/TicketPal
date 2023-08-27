@@ -67,16 +67,20 @@ class Bid extends Component {
     testfunc =  (event) => {
         event.preventDefault(); // Prevent the default form submission behavior
         this.refreshList();
+        const formData = new FormData(event.target);
+        const bidPrice = parseInt(formData.get("curMaxBid"));
         console.log("TICKETS TICKETS TICKETS: ", this.state.ticketList);
         const tickets = this.state.ticketList;
         for (let i=0; i < tickets.length; i++) {
             console.log("HEFHUHEF: ", tickets[i]);
             console.log("TICKETID: ", tickets[i].id);
             if (this.state.curId === tickets[i].id) {
+                const copy = tickets[i];
+                copy.curMaxBid = bidPrice;
                 try {
-                    axios.put(`/api/tickets/${this.state.curId}`, {
-                        curMaxBid: 1000,
-                    });
+                    console.log("PUTPUPTUPUT");
+                    axios.put(`http://localhost:8000/api/tickets/${this.state.curId}/`, copy
+                    );
 
                     // // Assuming your API returns an updated ticket object, update the state with the new ticket
                     // const updatedTicket = response.data; // Adjust based on your API response format
