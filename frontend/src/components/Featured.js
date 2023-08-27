@@ -71,7 +71,7 @@ class Featured extends Component {
                         <Bid id={item.id}></Bid>
                     </div>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-accent">Buy Now: $xx</button>
+                        <button className="btn btn-accent">Buy Now: ${item.buyNow}</button>
                     </div>
                 </div>
                 
