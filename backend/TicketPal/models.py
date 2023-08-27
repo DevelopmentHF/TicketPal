@@ -13,6 +13,7 @@ class Ticket(models.Model):
     vendor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="tickets_as_vendor")
     phone = models.CharField(max_length=12)
     curMaxBid = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1000)], default=0)
+    buyNow = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(1000)], default=0)
 
     def __str__(self):
         return self.name
