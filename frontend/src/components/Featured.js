@@ -65,7 +65,7 @@ class Featured extends Component {
             <div className="card w-60 bg-base-100">
                 <div className="card-body">
                     <p>{item.name} {item.location}</p>
-                    <Ticket name={item.name} location={item.location}></Ticket>
+                    <Ticket name={item.name} location={item.location} id={item.id}></Ticket>
                     
                     <div className="card-actions justify-center">
                         <Bid></Bid>
