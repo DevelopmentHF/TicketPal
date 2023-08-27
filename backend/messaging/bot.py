@@ -38,7 +38,7 @@ while True:
                     message = client.messages \
                         .create(
                         body="Congragulations " + user.get("username") + "! Your " + ticket["name"] + 
-                        " ticket was bought for $" + str(ticket["curMaxBid"]) +" by null",
+                        " ticket was bought for $" + str(ticket["curMaxBid"]) + ".",
                         from_='+15189812165',
                         to= '+61472909030'
                     )
