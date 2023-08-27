@@ -3,9 +3,12 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Featured from "./Featured";
 import {Navigation} from "./Navigations";
+import YourTickets from "./YourTickets";
+import {YourBids} from "./YourBids";
 
 export const Home = () => {
     const [message, setMessage] = useState('');
+    const [userId, setUserId] = useState(0);
 
     useEffect(() => {
         if (localStorage.getItem('access_token') === null) {
@@ -22,8 +25,8 @@ export const Home = () => {
                             }
                         }
                     );
-
-                    setMessage(data.message);
+                    setUserId(data.id);
+                    console.log("SETTING USER ID: " + userId);
                 } catch (e) {
                     console.log('not auth', e);
                 }
@@ -37,16 +40,14 @@ export const Home = () => {
                 <h1 className="text-4xl font-bold">Featured</h1>
                 <Featured></Featured>
             </div>
-            <div id="yourBids">
-                <h1>Your Bids</h1>
+            <div className="flex">
+                <div id="yourBids">
+                    <YourBids></YourBids>
+                </div>
+                <div id="yourTickets">
+                    <YourTickets id={userId}></YourTickets>
+                </div>
             </div>
-            <div id="yourTickets">
-                <h1>Your Tickets</h1>
-            </div>
-            {/*<div className="text-center m-8">*/}
-            {/*    <h1>Tickets you're selling</h1>*/}
-            {/*    <Featured></Featured> */}
-            {/*</div>*/}
         </div>
     );
 };

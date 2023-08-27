@@ -24,7 +24,7 @@ export function Navigation() {
                     );
 
                     setVendorId(data.id);
-                    console.log("VENDOR ID: " + vendorId);
+                    // console.log("VENDOR ID: " + vendorId);
                     setUsername(data.user);
                 } catch (e) {
                     console.log('not auth', e);
@@ -35,6 +35,7 @@ export function Navigation() {
 
     /* opens the selling modal when the button is clicked */
     const handleSellTicket = () => {
+        // console.log("vendor: " + vendorId);
         window.my_modal_1.showModal();
     }
 
