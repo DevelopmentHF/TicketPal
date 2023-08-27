@@ -40,14 +40,15 @@ export const Home = () => {
                 <h1 className="text-4xl font-bold">Featured</h1>
                 <Featured></Featured>
             </div>
-            <div className="flex gap-10 justify-center">
-                <div id="yourBids">
+            <div className="grid grid-cols-2 justify-center">
+                <div id="yourBids" className="flex flex-col items-center">
                     <YourBids id={userId}></YourBids>
                 </div>
-                <div id="yourTickets">
+                <div id="yourTickets" className="flex flex-col items-center">
                     <YourTickets id={userId}></YourTickets>
                 </div>
             </div>
         </div>
     );
+
 };

@@ -41,6 +41,7 @@ class YourTickets extends Component {
                 this.state.yourTickets.push(item);
             } else {
                 console.log("no match");
+                console.log("CurID: " + this.state.userId);
             }
         })
     }
@@ -52,8 +53,6 @@ class YourTickets extends Component {
 
         const { viewCompleted } = this.state;
         const newTickets = this.state.ticketList;
-
-
 
         return this.state.yourTickets.map((item) => (
             <h1>{item.name}</h1>

@@ -7,7 +7,7 @@ class YourBids extends Component {
         super(props);
         this.state = {
             ticketList: [],
-            yourTickets: [],
+            yourBids: [],
             userId: props.id,
             // isTicketShowing: false,
         }
@@ -34,13 +34,14 @@ class YourBids extends Component {
             .catch((err) => console.log(err));
 
         // go through the ticket list and remove all the ones not related to this persons id
-        this.state.yourTickets = [];
+        this.state.yourBids = [];
         this.state.ticketList.map((item) => {
-            if (item.vendor === this.state.userId) {
-                console.log("ticket match");
-                this.state.yourTickets.push(item);
+            if (item.bidders.includes(this.state.userId)) {
+                console.log("bid match");
+                this.state.yourBids.push(item);
             } else {
-                console.log("no match");
+                console.log("no bid match");
+                console.log("CurID: " + this.state.userId);
             }
         })
     }
@@ -53,7 +54,7 @@ class YourBids extends Component {
         const { viewCompleted } = this.state;
         const newTickets = this.state.ticketList;
 
-        return this.state.yourTickets.map((item) => (
+        return this.state.yourBids.map((item) => (
             <h1>{item.name}</h1>
         ));
     };
