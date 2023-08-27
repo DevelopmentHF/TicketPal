@@ -37,6 +37,7 @@ class YourTickets extends Component {
         this.state.yourTickets = [];
         this.state.ticketList.map((item) => {
             if (item.vendor === this.state.userId) {
+                console.log("CurID: " + this.state.userId);
                 console.log("ticket match");
                 this.state.yourTickets.push(item);
             } else {

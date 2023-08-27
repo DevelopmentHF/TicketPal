@@ -37,6 +37,7 @@ class YourBids extends Component {
         this.state.yourBids = [];
         this.state.ticketList.map((item) => {
             if (item.bidders.includes(this.state.userId)) {
+                console.log("CurID: " + this.state.userId);
                 console.log("bid match");
                 this.state.yourBids.push(item);
             } else {
